@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+
+Route::post('/logout', 'Auth\LoginController@logout')->name('system.logout');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('system');
+
+
+    Route::get('/companies', 'CompaniesController@companies')->name('companies');
+
+    Route::get('/persons', 'PersonsController@persons')->name('persons');
 });
