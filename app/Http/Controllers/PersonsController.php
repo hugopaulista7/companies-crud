@@ -16,4 +16,9 @@ class PersonsController extends Controller
     {
         return view('admin.persons', ['persons' => $this->getAll()]);
     }
+
+    public function create()
+    {
+        return view('admin.person.create');
+    }
 }

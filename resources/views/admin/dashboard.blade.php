@@ -1,5 +1,6 @@
 @extends('adminlte::page')
-<script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
+
+<script type="text/javascript" src="{{asset('js/jquery.js')}}"></script>
 @section('title', 'Admin | Companies')
 
     @section('content_header')
@@ -26,5 +27,6 @@
     </div>
     @endsection
     @stack('dash-js')
+
 
 

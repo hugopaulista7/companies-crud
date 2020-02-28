@@ -10,7 +10,7 @@ class PrivateIndividual extends Model
 
     protected $fillable = ['rg', 'cpf', 'birth_date'];
 
-    protected $timestamps = true;
+    public $timestamps = false;
 
     public function company()
     {

@@ -10,7 +10,7 @@ class LegalEntity extends Model
 
     protected $fillable = ['cnpj', 'fantasy_name'];
 
-    protected $timestamps = true;
+    public $timestamps = false;
 
     public function company()
     {

@@ -5,7 +5,7 @@
 @section('action-buttons')
 
 
-<a class="btn btn-primary" href="">Inserir registro</a>
+<a class="btn btn-primary" href="{{ route('companies.create') }}">Inserir registro</a>
 
 @endsection
 @section('table-header')

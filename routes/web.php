@@ -22,6 +22,10 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::get('/companies', 'CompaniesController@companies')->name('companies');
+    Route::get('/companies/create', 'CompaniesController@create')->name('companies.create');
+    Route::post('/companies/create', 'CompaniesController@insert')->name('companies.insert');
+
 
     Route::get('/persons', 'PersonsController@persons')->name('persons');
+    Route::get('/persons/create', 'PersonsController@create')->name('persons.create');
 });
