@@ -11,4 +11,14 @@ class Company extends Model
     protected $fillable = ['name', 'city'];
 
     public $timestamps = true;
+
+    public function individual()
+    {
+        return $this->hasOne(PrivateIndividual::class);
+    }
+
+    public function entity()
+    {
+        return $this->hasOne(LegalEntity::class);
+    }
 }
