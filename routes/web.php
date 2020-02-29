@@ -28,9 +28,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/companies', 'CompaniesController@companies')->name('companies');
     Route::get('/companies/create', 'CompaniesController@create')->name('companies.create');
     Route::post('/companies/create', 'CompaniesController@insert')->name('companies.insert');
-    Route::get('/companies/delete/{id}', 'CompaniesController@delete')->name('companies.delete');
-    Route::get('/companies/edit/{id}', 'CompaniesController@edit')->name('companies.edit');
+    Route::get('/companies/delete/{id?}', 'CompaniesController@delete')->name('companies.delete');
+    Route::get('/companies/edit/{id?}', 'CompaniesController@edit')->name('companies.edit');
     Route::post('/companies/update/{id}', 'CompaniesController@update')->name('companies.update');
+
+    Route::post('/companies/filter', 'CompaniesController@getByFilter')->name('companies.filter');
 
 
     Route::get('/persons', 'PersonsController@persons')->name('persons');

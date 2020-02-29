@@ -19,6 +19,12 @@
             </div>
         </div>
     </div>
+    <div class="container-fluid">
+        <div class="row">
+            @yield('filter-row')
+        </div>
+    </div>
+
 
     <div class="container">
         @yield('dashboard-content')

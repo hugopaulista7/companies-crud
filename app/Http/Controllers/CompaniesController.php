@@ -17,8 +17,13 @@ class CompaniesController extends Controller
         return Company::get();
     }
 
+    public function getAllWithRelations()
+    {
+        return Company::with(['entity', 'individual'])->get();
+    }
+
     public function companies() {
-        return view('admin.companies', ['companies' => $this->getAll()]);
+        return view('admin.companies', ['companies' => $this->getAllWithRelations()]);
     }
 
     public function getById($id)
@@ -191,5 +196,32 @@ class CompaniesController extends Controller
 
         flashMessage('Comany updated successfuly!', 'alert-success');
         return redirect()->route('companies');
+    }
+
+    public function getByFilter(Request $request)
+    {
+        $input = $request->all();
+        if ($input['type'] == 'name') {
+            return response()->json(['companies' => $this->filterByName($input['value'])], 200);
+        }
+
+        return response()->json(['companies' => $this->filterByRelationDocument($input['value'], 200)]);
+    }
+
+    public function filterByName($value)
+    {
+        return Company::where('name', 'like', '%' . $value . '%')->with(['individual', 'entity'])->get();
+    }
+
+    public function filterByRelationDocument($value)
+    {
+        return Company::with([
+            'individual' => function($query) use ($value) {
+                $query->where('private_individuals.cpf', 'like', '%' . $value . '%');
+            },
+            'entity' => function ($query) use ($value) {
+                $query->where('legal_entities.cnpj', 'like', '%' . $value . '%');
+            }
+        ])->get();
     }
 }
