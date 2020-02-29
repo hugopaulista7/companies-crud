@@ -224,4 +224,9 @@ class CompaniesController extends Controller
             }
         ])->get();
     }
+
+    public function getCompaniesJson()
+    {
+        return response()->json(['companies' => $this->getAllWithRelations()], 200);
+    }
 }
