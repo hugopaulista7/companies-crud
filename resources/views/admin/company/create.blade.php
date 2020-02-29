@@ -54,6 +54,7 @@
 
     <button type="submit" class="btn btn-success">Confirm</button>
 </form>
+
 <script type="text/javascript" src="{{asset('js/jquery.mask.js')}}"></script>
 <script defer type="text/javascript">
 $(document).ready(($) => {

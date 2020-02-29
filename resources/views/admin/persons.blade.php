@@ -5,16 +5,16 @@
 @section('action-buttons')
 
 
-<a class="btn btn-primary" href=" {{route('persons.create')}} ">Inserir registro</a>
+<a class="btn btn-primary" href="{{route('persons.create')}} ">Inserir registro</a>
 
 @endsection
 @section('table-header')
 <thead>
     <tr>
       <th>#</th>
-      <th>Nome</th>
-      <th>Editar</th>
-      <th>Excluir</th>
+      <th>Name</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
 </thead>
 @endsection
@@ -27,10 +27,10 @@
         <td>{{$item->id}}</td>
         <td>{{$item->name}}</td>
         <td>
-            <a href="" class="btn btn-primary">Editar</a>
+            <a href="{{route('persons.edit', $item->id)}}" class="btn btn-primary">Edit</a>
         </td>
         <td>
-            <a href="" class="btn btn-danger">Excluir</a>
+            <a href="{{route('persons.delete', $item->id)}}" class="btn btn-danger">Delete</a>
         </td>
 
     </tr>
@@ -43,9 +43,9 @@
 <tfoot>
     <tr>
       <th>#</th>
-      <th>Nome</th>
-      <th>Editar</th>
-      <th>Excluir</th>
+      <th>Name</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
 </tfoot>
 @endsection
